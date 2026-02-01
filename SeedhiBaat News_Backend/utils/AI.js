@@ -49,14 +49,45 @@ let textAiGem = async()=>
             });
         
             console.log("genai res", response.text);
-            // let jsonConvetedRes = convertToJson(response.text);
-            return response.text;
+            let jsonConvetedRes = convertToJson(response.text);
+            return jsonConvetedRes;
         } catch (error) {
             console.log("err occured sending to open ai",error);
             // return routeOpenAI(message);
             return;
         }
     }
+
+
+
+    let convertToJson = (text) => {
+        try {
+            // Match both JSON objects {} and arrays []
+            let matches = text.match(/({[\s\S]*?}|\[[\s\S]*?\])/g);
+    
+            if (matches) {
+                let results = [];
+                for (let jsonStr of matches) {
+                    try {
+                        let data = JSON.parse(jsonStr);
+                        console.log(data);
+                        results.push(data);
+                    } catch (err) {
+                        console.log("Invalid JSON detected:", err.message);
+                    }
+                }
+                console.log("res",results);
+                return results;
+            } else {
+                console.log("No JSON found");
+                return null;
+            }
+        } catch (error) {
+            console.log("Error:", error);
+            return null;
+        }
+    };
+    
     
 
 module.exports = {textAi, textAiGem}
