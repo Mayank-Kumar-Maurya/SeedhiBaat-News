@@ -1,5 +1,6 @@
 const express = require("express");
 const { textAi, textAiGem } = require("../utils/AI");
+const { getNews } = require("../utils/openNews");
 const router = express.Router()
 
 router.route("/")
@@ -292,7 +293,8 @@ data = [
 router.route("/sensitive")
 .post(async(req, res)=>
 {
-    let aires = await textAiGem();
+    let newslist = await getNews();
+    let aires = await textAiGem(newslist);
     console.log("hi")
     console.log(aires);
     res.status(200).json({aires:aires})

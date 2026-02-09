@@ -1,10 +1,13 @@
 require('dotenv').config()
+require("dns").setDefaultResultOrder("ipv4first");
+
 const express = require("express")
 const app = express()
 const port = 8060;
 const cors = require("cors");
 const All_routes = require("./Routes/All_routes");
 const AI_Route = require("./Routes/AI_Route");
+
 
 app.use(express.json({limit: '10mb'}));
 app.use(express.urlencoded({extended: true}));

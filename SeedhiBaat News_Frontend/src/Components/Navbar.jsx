@@ -24,6 +24,9 @@ function Navbar() {
           <Link className="nav-link" to="/sensitive" onClick={()=>airesponse()}>Sensitive</Link> 
         </li>
         <li className="nav-item">
+          <Link className="nav-link" to="/budget" >Budget</Link> 
+        </li>
+        <li className="nav-item">
           <Link className="nav-link disabled" aria-disabled="true">Disabled</Link> 
         </li>
       </ul>

@@ -6,6 +6,7 @@ import App from './App.jsx'
 import ServerContextProvider from './Context/ServerContextProvider.jsx'
 import Home from './Components/Home.jsx'
 import Sensitive from './Components/Sensitive.jsx'
+import Budget from './Components/Budget.jsx'
 
 
 let router = createBrowserRouter([
@@ -23,6 +24,10 @@ let router = createBrowserRouter([
         {
           path: "/sensitive",
           element: <Sensitive/>
+        },
+        {
+          path: "/budget",
+          element: <Budget/>
         }
       ]
   }

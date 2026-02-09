@@ -9,7 +9,11 @@ let server = axios.create({
   withCredentials: true,
 });
 
+
+
 let [aiRes, setAiRes] = useState([]);
+
+
 
 let airesponse = async()=>
 {
